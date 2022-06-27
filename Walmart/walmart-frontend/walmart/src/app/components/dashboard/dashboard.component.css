@@ -1,0 +1,82 @@
+.checked {
+    color: orange;
+  }
+  .heart:checked{
+    color:red !important;
+  }
+
+.total_review{
+  color: blue;
+}
+
+.container-fluid{
+  width: 100%;
+  height: 150;
+}
+i:hover {
+  color: red;
+}
+.fav{
+  color: red;
+}
+
+#profile {
+  top: 80px;
+  background-color: #2196F3;
+  text-align: right;
+}
+
+#logout {
+  top: 140px;
+  background-color: #f44336;
+  text-align: right;
+}
+
+#login {
+  top: 200px;
+  background-color: #555;
+  text-align: right;
+}
+
+/* Chips Bar CSS */
+
+.chip {
+  display: inline-block;
+  padding: 0 25px;
+  height: 38px;
+  font-size: 15px;
+  line-height: 38px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.chip img {
+  float: left;
+  margin: 0 10px 0 -25px;
+  height: 38px;
+  width: 38px;
+  border-radius: 50%;
+}
+
+.chipsBar{
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+
+@media screen and (max-width:700px) {
+  .chipsBar{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+  }
+
+}
+
+
+
+
+

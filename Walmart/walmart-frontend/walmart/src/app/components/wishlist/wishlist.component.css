@@ -1,0 +1,63 @@
+.total_review{
+    color: blue;
+}
+
+.checked {
+ color: orange;
+}
+
+ 
+ 
+.Wishlist_container{
+    padding: 1rem;
+ }
+
+.card{
+margin: 1rem;
+border-radius: 10px;
+transition: transform .3s;
+
+}
+
+.card:hover{
+transform: translateX(15px);
+transition: transform .3s;
+}
+
+hr{
+    width: auto;
+    height: 0.5rem;
+    background: #ffa500;
+    border-radius: 6px;
+}
+
+#wishlist{
+    padding-top: 2rem;
+}
+
+.delete-button{
+    margin-left: 19rem;
+    cursor: pointer;
+}
+
+.delete-button:hover{
+    border: rgb(69, 68, 68);
+    border-radius: 50%;
+}
+
+.card-title{
+    margin-top: 25px;
+    margin-bottom: -20px;
+}
+
+.price{
+    margin-bottom: 20px;
+}
+
+
+@media screen and (max-width:700px) {
+    .delete-button{
+        margin-left: 12rem;
+        cursor: pointer;
+    }
+}

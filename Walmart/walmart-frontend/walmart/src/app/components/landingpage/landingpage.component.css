@@ -1,0 +1,85 @@
+/* Corousel CSS */
+
+.carousel{
+    padding: 20px;
+}
+
+.carousel-item{
+    height: 300px;
+} 
+.carousel-item img{
+    height: 300px;
+    border-radius: 10px;
+}
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+/* Chips Bar CSS */
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 38px;
+    font-size: 15px;
+    line-height: 38px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+  
+.chip img {
+    float: left;
+    margin: 0 10px 0 -25px;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+}
+
+.chipsBar{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: -1;
+}
+
+
+.card{
+    border-radius: 20px;
+}
+
+.card:hover{
+    transform: translateY(-15px);
+    transition: transform .3s;
+}
+
+
+.TopPicksContainer, .TopDealsContainer{
+    margin: 25px;
+}
+
+.TopDealsBorder, .TopPicksBorder{
+    box-sizing: border-box;
+    background-color:rgba(128, 128, 128, 0.604);
+    border: 3px solid black;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+
+.text-dark{
+    text-decoration: none;
+}
+
+@media screen and (max-width:700px) {
+    
+     .carousel{
+         display: none;
+     }
+}

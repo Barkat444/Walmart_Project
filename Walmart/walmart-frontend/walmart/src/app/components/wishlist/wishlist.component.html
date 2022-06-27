@@ -1,0 +1,52 @@
+<div *ngIf="wishlist_products.length==0?true:false" class="Wishlist_container">
+  <div class="card mb-3  emptywishlist" style=" max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="../../../assets/Images/emptyWishlist.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title mb-3">Sorry, Your Wishlist is Empty</h5>
+          <p class="card-text">Please add products to your Wishlist</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <div class="Wishlist_container " *ngIf="wishlist_products.length!=0?true:false">
+      <h1>Wishlist</h1>
+      <hr>
+        <div *ngFor="let products of wishlist_products " class="container-fluid">
+            <div class="card mb-3 " style=" max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{products.image}}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{products.title|slice:0:10}}</h5>
+                      <span (click)="deleteProduct(products)" class="material-symbols-outlined delete-button">delete</span>
+                      <small style="display: block;">
+                        <span [class.checked]="products.rating>1?true:false" class="fa fa-star"></span>
+                        <span [class.checked]="products.rating>2?true:false"  class="fa fa-star "></span>
+                        <span [class.checked]="products.rating>3?true:false"  class="fa fa-star "></span>
+                        <span [class.checked]="products.rating>4?true:false" class="fa fa-star"></span>
+                        <span [class.checked]="products.rating>5?true:false" class="fa fa-star"></span>
+                        <span class="mx-1 total_review">{{products.ratingTotal}}</span>
+                      </small>
+                      <p class="card-text">{{products.title}}</p>
+                       
+                          <div class="shipping">
+                            <small>Get it delivered within <strong>{{products.shippingDays}} days <i class="fa-solid fa-truck"></i> </strong></small>
+                          </div>    
+                      <p class="card-text"><small class="text-muted">Price:${{products.price}}</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>

@@ -1,0 +1,110 @@
+
+
+<div class="chipsBar">
+
+
+  <div class="chip" (click)="onClickCategory('fashion')">
+    <img src="assets\Images\catagories-smart-watch-demo.webp" alt="Person" width="96" height="96">
+    Fashion
+  </div>
+  <div class="chip" (click)="onClickCategory('electronics')">
+    <img src="assets\Images\electronics" alt="Person" width="96" height="96">
+    Electronics
+  </div>
+  <div class="chip" (click)="onClickCategory('furniture')">
+    <img src="assets\Images\furniture.jpg" alt="Person" width="96" height="96">
+    Furniture
+  </div>
+  <div class="chip" (click)="onClickCategory('books')">
+    <img src="assets\Images\book.jpg" alt="Person" width="96" height="96">
+    Books
+  </div>
+  <div class="chip" (click)="onClickCategory('essentials')">
+    <img src="assets\Images\essentials.jpg" alt="Person" width="96" height="96">
+    Essentials
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="d-flex justify-content-center" *ngIf="loading">
+  <div class="spinner-border text-primary" role="status" style="width: 5rem; height:5rem; margin-top:10rem;">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+  <div class="container mt-4 mb-5">
+    <div class="row mt-2 mb-4"*ngIf="this.products==undefined?false:true || !loading">
+      <div
+        *ngFor="let p of this.products.search_results"
+        class="col-lg-4 col-md-6 col-sm-12 mb-4" >
+        <div class="card" style="margin: auto; width: 18rem; border: none">
+          <img src="{{ p.product.main_image }}" />
+          <div class="card-body">
+            <h5 class="d-inline-flex card-title">
+              {{ p.product.title | slice: 0:75 }}...
+            </h5>
+            <small style="display: block">
+              <span
+                [class.checked]="p.product.rating < 1 ? true : false"
+                class="fa fa-star"
+              ></span>
+              <span
+                [class.checked]="p.product.rating > 1 ? true : false"
+                class="fa fa-star"
+              ></span>
+              <span
+                [class.checked]="p.product.rating > 2 ? true : false"
+                class="fa fa-star"
+              ></span>
+              <span
+                [class.checked]="p.product.rating > 3 ? true : false"
+                class="fa fa-star"
+              ></span>
+              <span
+                [class.checked]="p.product.rating > 4 ? true : false"
+                class="fa fa-star"
+              ></span>
+              <span class="mx-1 total_review">{{
+                p.product.ratings_total
+              }}</span>
+            </small>
+            <div class="d-flex justify-content-between">
+              <h3>${{ p.offers.primary.price }}</h3>
+              <i [class.fav]="fav"
+                (click)="addToWishList(p)"
+                class="fa-regular fa-heart fa-2x heart"
+              ></i>
+              <style>
+              
+              </style>
+            </div>
+            <div class="shipping">
+              <small
+                >Get it delivered within
+                <strong
+                  >{{ p.fulfillment.shipping_days }} days
+                  <i class="fa-solid fa-truck"></i> </strong
+              ></small>
+            </div>
+
+            <p class="card-text"></p>
+            <h4 class="mx-4 mb-2"></h4>
+            <a href="#" class="btn btn-primary mb-1" style="width: 100%"
+              >Buy Now</a
+            >
+            <a href="#" class="btn btn-outline-primary" style="width: 100%"
+              >Add to Cart</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

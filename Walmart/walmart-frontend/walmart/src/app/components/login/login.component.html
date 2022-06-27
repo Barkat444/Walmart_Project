@@ -1,0 +1,67 @@
+<div class="body">
+
+  
+
+  <div class="row">
+  <div class="container mb-5 px-3 col-lg-6 clo-md-6 col-sm-12 animated slideInDown">        
+      <form [formGroup]="formGroup" (submit)="onLogin()"novalidate style="margin: auto; width:100%;" class="mt-5 px-4 py-5">
+          <h1>Login</h1>      
+          
+          
+          <div class="alert alert-danger" *ngIf='invalidLogin'>{{errorMessage}}</div>
+          <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
+
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username"[class.is-valid]="(formGroup.controls.email?.dirty
+            ||formGroup.controls.email?.touched)&&formGroup.controls.email?.valid"
+        [class.is-invalid]="(formGroup.controls.email?.dirty
+        ||formGroup.controls.email?.touched)&& formGroup.controls.email?.invalid">
+  
+            <ng-container *ngIf="!formGroup.controls.email?.valid && (formGroup.controls.email?.dirty
+            ||formGroup.controls.email?.touched)">
+            
+            <div class="text-danger" *ngIf="formGroup.controls.email.errors?.required">
+              *This field is required.
+            </div>
+            <div class="text-danger" *ngIf="formGroup.controls.email.errors?.pattern">
+            *Wrong Email Format
+            </div>  
+          </ng-container>
+          </div>
+  
+          <div class="mb-3">
+            <label for="InputPassword" class="form-label">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" [class.is-valid]="(formGroup.controls.password?.dirty
+            ||formGroup.controls.password?.touched)&&formGroup.controls.password?.valid"
+        [class.is-invalid]="(formGroup.controls.password?.dirty
+        ||formGroup.controls.password?.touched)&& formGroup.controls.password?.invalid">
+            <ng-container *ngIf="!formGroup.controls.password?.valid && (formGroup.controls.password?.dirty
+            ||formGroup.controls.password?.touched)">
+              <div class="text-danger" *ngIf="formGroup.controls.password.errors?.required">
+                *This field is required.
+              </div>
+              <div class="text-danger" *ngIf="formGroup.controls.password.errors?.minlength">
+              *Minimum Length should be 8 
+              </div>
+          </ng-container>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+          </div>
+          <button id="register" [disabled]="!formGroup.valid" type="submit" type="submit" class="btn btn-primary" style="width: 100%;">Submit</button>
+        </form>
+        <div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <button  (click)="oAuthLogin()"style="width: 100%;" class="btn btn-lg btn-google btn-block text-uppercase btn-outline" href="#"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Login Using Google</button>
+  
+          </div>
+      </div>
+      <br>
+      </div>
+    </div>
+  </div>

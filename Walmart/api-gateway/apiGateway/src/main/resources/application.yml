@@ -1,0 +1,44 @@
+server:
+    port: 8999
+
+eureka:
+  instance:
+    hostname: localhost
+  service-url:
+    defaultZone: http://localhost:8761/eureka**  
+  fetch-registry: true
+  register-with-eureka: true  
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+     gateway:
+      default-filters:
+        - DedupeResponseHeader= Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+
+            allowedOrigins:
+              - "http://localhost:4200"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+      discovery:
+      
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+            - Path=/user/**
+
+      - id: wishlist-service
+        uri: lb://wishlist-service
+        predicates:
+            - Path=/wishlist/**      
+

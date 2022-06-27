@@ -1,0 +1,91 @@
+<!-- ------Nav-Bar----- -->
+
+<!-- <nav class="navbar absolute-top  navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/"><img loading="lazy" alt="Walmart" class="db" height="32"
+        src="../../../assets/Images/walmartLogo.svg" width="130"></a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+      <div class="navbar-nav ms-auto SymbolToText">
+        <a class="nav-link active gaping mx-2 favorite"routerLink="/wishlist" ><span class="material-symbols-outlined">favorite</span></a>
+        <a class="nav-link active gaping mx-2 shopping_cart"routerLink="/dashboard" ><span class="material-symbols-outlined">shopping_cart</span></a>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<section class="navbar navbar-expand-lg navbar-primary bg-primary">
+  <div class="container">
+    <div class="container">
+      <div class="wrapper">
+        <input type="checkbox" id="btn" hidden>
+        <label for="btn" class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+        <i class="fas fa-times"></i>
+        </label>
+        <nav id="sidebar">
+           <div class="title">
+              <img src="assets\Images\walmartLogo.svg" alt="" srcset="">
+           </div>
+           <ul class="list-items">
+              <li><a href="#"><i class="fas fa-home" [routerLink]="['/landingpage']" routerLinkActive="router-link-active" ></i>Home</a></li>
+              <li><a href="#"><i class="fas fa-edit" *ngIf="this.login_status"  routerLink="/edit-profile"></i>Edit Profile</a></li>
+              <li><a href="#"><i class="fas fa-sign-in" *ngIf="!this.login_status"  routerLink="/login"></i>Login</a></li>
+              <li><a href="#"><i class="fas fa-user-plus" *ngIf="!this.login_status" routerLink="/register"></i>Register</a></li>
+              <li><a href="#"><i class="material-symbols-outlined">shopping_cart</i>Your Cart</a></li>
+              <li><a href="#"><i class="fas fa-list"></i>Your Orders</a></li>
+              <li><a href="#"><i class="fas fa-heart" *ngIf="this.login_status"routerLink="/wishlist"></i>Your Wishlist</a></li>
+              <li><a href="#"><i class="fas fa-user"></i>About us</a></li>
+              <li><a href="#"><i class="fas fa-address-book"></i>Contact us</a></li>
+              <li><a href="#"><i class="fa fa-right-from-bracket" (click)="Logout()" *ngIf="this.login_status"></i>Logout</a></li>
+           </ul>
+        </nav>
+     </div>
+      <form class="d-flex searchBox">
+        <input class="form-control me-2" type="search" #search placeholder="Search" aria-label="Search">
+        <button class="btn btn-warning" (click)="OnSearch(search.value)" type="submit">Search</button>
+      </form>
+    </div> 
+  </div>
+</section> -->
+
+
+
+
+
+
+
+
+
+<nav class="navbar  sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/"><img loading="lazy" alt="Walmart" class="db" height="32"
+          src="assets\Images\walmartLogo.svg" width="130"></a>
+<div class="input-group rounded"style="width:60%; margin-left:auto;">
+                <input type="search" #search class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-0" style="background-color: orange;" id="search-addon">
+                  <i (click)="OnSearch(search.value)" class="fas fa-search" style="cursor: pointer;"></i>
+                </span>
+              </div>
+    
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link active  gaping"*ngIf="!this.login_status"  routerLink="/login">Log-in</a>
+          <a class="nav-link active  gaping" (click)="Logout()" *ngIf="this.login_status" href="#">Logout</a>
+          <a class="nav-link active  gaping"*ngIf="this.login_status"  routerLink="/edit-profile">Edit Profile</a>
+          <a class="nav-link active  gaping" *ngIf="!this.login_status" routerLink="/register">Register</a>
+          <a class="nav-link active gaping" *ngIf="this.login_status"routerLink="/wishlist">Wishlist</a>
+        </div>
+      </div>
+    </div>
+  </nav>
